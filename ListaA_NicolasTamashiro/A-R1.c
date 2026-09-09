@@ -11,7 +11,7 @@ int main(){
     int x;
     scanf("%d", &x);
 
-    printf("%lld\n", fat(x));
+    printf("Fatorial: %lld\n", fat(x));
 
     return 0;
 }
