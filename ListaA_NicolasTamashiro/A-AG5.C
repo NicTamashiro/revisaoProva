@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void estatisticas(float vet[], int n, float * media, float * maior){
     float soma = 0;
@@ -19,8 +20,8 @@ int main(int argc, char *argv[]){
 
     float vet[n];
 
-    for (int i = 2; i < i; i++){
-        vet[i] = atof(argv[i]);
+    for (int i = 0; i < i; i++){
+        vet[i] = atof(argv[i + 2]);
     }
 
     float media, maior;
