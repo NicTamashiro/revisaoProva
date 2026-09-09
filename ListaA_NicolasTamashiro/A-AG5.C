@@ -19,8 +19,8 @@ int main(int argc, char *argv[]){
 
     float vet[n];
 
-    for (int i = 0; i < i; i++){
-        vet[i] = atof(argv[i + 2]);
+    for (int i = 2; i < i; i++){
+        vet[i] = atof(argv[i]);
     }
 
     float media, maior;
