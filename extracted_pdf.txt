@@ -1,0 +1,1719 @@
+﻿=== PAGE 1 ===
+Listas de Exerc├¡cios ΓÇö Projeto de Algoritmos
+Fun├º├╡es, Recursividade, For├ºa Bruta, Divis├úo e
+Conquista, Algoritmos Gulosos e Programa├º├úo
+Din├ómica
+Prof. Dr. Guilherme Apolin├írio Silva Novaes
+UNISANTOS
+Instru├º├╡es gerais, leia tudo antes de come├ºar
+1. Grupo sim, entrega individual. Discuta e resolva junto com seu grupo durante a
+aula, isso ├⌐ esperado e faz parte do aprendizado. Mas cada um entrega o seu pr├│prio
+material, escrito por si.
+Se duas entregas id├¬nticas aparecerem, os dois ter├úo que
+explicar o c├│digo na minha frente.
+2. O que fazer em aula: os exerc├¡cios [F├ícil] (3 por t├│pico) s├úo para serem feitos em
+aula, em grupo. Os exerc├¡cios [M├⌐dio] e [Dif├¡cil] s├úo desafios para estudar em
+casa, ningu├⌐m ├⌐ obrigado a terminar em aula, mas tentar depois ├⌐ o que faz a diferen├ºa
+na prova.
+3. Entrega no final de cada aula:
+Aula
+O que entregar
+Conte├║do
+Aula 1 (revis├úo 1)
+Lista A
+3 [F├ícil] de cada um dos 6 t├│picos
+Aula 2 (revis├úo 2)
+Lista B
+3 [F├ícil] de cada um dos 6 t├│picos
+Aula 3 (revis├úo 3)
+Lista C
+3 [F├ícil] de cada um dos 6 t├│picos
+A entrega ├⌐ separada por lista: na entrega da Lista A s├│ aceito Lista A; na da Lista
+B, s├│ Lista B; e assim por diante. Confira o r├│tulo de cada exerc├¡cio (A-F1, A-R3,
+B-D5, C-P4, . . . ) antes de colocar na folha, entrega errada n├úo ser├í trocada depois.
+Formato da entrega: um ├║nico arquivo .zip contendo todos os arquivos .c da-
+quela lista.
+Cada c├│digo-fonte deve estar em um arquivo separado, nomeado com
+o r├│tulo do exerc├¡cio (ex.: A-F1.c, A-R3.c, B-D5.c).
+O arquivo zip deve se chamar
+Lista<Letra>_<SeuNome>.zip (ex.: ListaA_JoaoSilva.zip). Zip sem os arquivos
+.c, com execut├ível no lugar do c├│digo, ou fora do padr├úo de nomes n├úo ser├í
+aceito.
+4. Faltou entregar? Acumula. Se voc├¬ n├úo terminou a Lista A na Aula 1, ela acumula:
+entregue na Aula 2 ou na Aula 3, mas sempre identificada como Lista A e separada
+da lista da vez (um zip para cada lista, na d├║vida). N├úo misture exerc├¡cios de listas
+diferentes na mesma entrega.
+5. Regra do zero: entregar nenhum exerc├¡cio de uma lista = nota zero naquela lista.
+Entrega parcial vale! N├úo precisa completar tudo, fa├ºa o que conseguir e entregue.
+1
+
+=== PAGE 2 ===
+6. Ficou na d├║vida? (a) Primeiro pergunte ao seu grupo; (b) se o grupo inteiro estiver
+travado, pergunte a outro grupo; (c) se a sala toda tiver a mesma d├║vida, pule o
+exerc├¡cio, anote o n├║mero dele (ex.: ΓÇ£B-D4 em d├║vidaΓÇ¥) na folha e siga em frente,
+resolvemos juntos quando eu voltar. N├úo fique mais do que 5 minutos parado no
+mesmo exerc├¡cio.
+7. Antes de entregar, confira:
+O .zip cont├⌐m todos os arquivos .c da lista, um por exerc├¡cio feito, nomeados pelo
+r├│tulo (A-F1.c, A-F2.c, . . . );
+Cada programa compila e a sa├¡da bate exatamente com os Casos de teste do
+enunciado;
+Nome completo e identifica├º├úo est├úo corretos no nome do .zip (Lista<Letra>_<SeuNome>.zip);
+Voc├¬ consegue explicar com suas palavras o que cada trecho do c├│digo faz, posso
+chamar qualquer pessoa para explicar a entrega.
+8. Os Casos de teste s├úo a especifica├º├úo. N├úo ├⌐ ΓÇ£parecidoΓÇ¥ que vale: a sa├¡da do seu
+programa tem que ser igualzinha ├á do enunciado, caractere por caractere, inclusive nos
+casos de borda (n = 0, valor n├úo encontrado, entrada vazia, n├║mero negativo). Teste
+todos os casos antes de entregar.
+9. Material de consulta: podem usar os slides da disciplina, o pr├│prio caderno e c├│di-
+gos que voc├¬s mesmos escreveram.
+(Professor: edite aqui se quiser liberar ou proibir
+livros/internet.)
+10. Linguagem: C, exatamente como nos slides (prot├│tipos, ponteiros, struct, etc.). C├│-
+digo leg├¡vel, identado e com nomes de vari├íveis claros conta pontos, c├│digo ΓÇ£tortoΓÇ¥ que
+funciona recebe desconto.
+11. N├úo sabe por onde come├ºar? Releia o enunciado procurando por: (a) a assinatura
+da fun├º├úo (nome, tipos, par├ómetros); (b) o que a main deve fazer; (c) os Casos de
+teste. Quase sempre d├í para montar o esqueleto do programa (includes + prot├│tipo +
+main vazia) s├│ copiando essas informa├º├╡es, e a├¡ a l├│gica fica mais f├ícil de enxergar.
+2
+
+=== PAGE 3 ===
+1
+Lista A
+1. Fun├º├╡es
+1. [F├ícil] Linha de separa├º├úo. Escreva uma fun├º├úo void linha(void) que im-
+prime uma linha com exatamente 80 caracteres ΓÇÖ-ΓÇÖ. Escreva o prot├│tipo da fun├º├úo
+antes da main. A main n├úo l├¬ nada do teclado e produz exatamente 3 linhas de
+sa├¡da, chamando linha() duas vezes.
+Sa├¡da: linha com 80 h├¡fens; a frase Um programa em C centralizada com tabula├º├╡es
+(\t); outra linha com 80 h├¡fens.
+Casos de teste:
+-------------------------------------------------------------------------------
+Um programa em C
+-------------------------------------------------------------------------------
+2. [F├ícil] Soma de dois n├║meros. Escreva a fun├º├úo int soma(int a, int b)
+que devolve (com return) a soma dos dois par├ómetros. A main l├¬ dois inteiros e
+imprime Soma:
+X, onde X ├⌐ o valor devolvido por soma(n1, n2).
+Entrada: dois inteiros separados por espa├ºo.
+Sa├¡da: a linha Soma:
+X.
+Casos de teste:
+Entrada:
+7 3
+->
+Saida: Soma: 10
+Entrada:
+-4 10
+->
+Saida: Soma: 6
+Entrada:
+0 0
+->
+Saida: Soma: 0
+3. [F├ícil] Dobro (passagem por valor). Escreva a fun├º├úo void dobro(int x)
+que imprime Dobro:
+Y, onde Y = 2*x. A main l├¬ um inteiro n, chama dobro(n)
+e depois imprime Numero informado:
+n (o valor original de n).
+Entrada: um inteiro n.
+Sa├¡da: duas linhas: Dobro:
+2n e Numero informado:
+n.
+Casos de teste:
+Entrada:
+6
+->
+Saida: Dobro: 12 / Numero informado: 6
+Entrada:
+-3
+->
+Saida: Dobro: -6 / Numero informado: -3
+Perguntas: o valor de n na main foi alterado pela chamada? Justifique com o
+conceito de passagem por valor (c├│pia tempor├íria).
+4. [M├⌐dio] Troca de valores por refer├¬ncia. Escreva a fun├º├úo void troca(int
+*pa, int *pb) que troca os conte├║dos das vari├íveis apontadas pelos dois pon-
+teiros, usando uma vari├ível auxiliar. A main declara a = 10 e b = 20 fixos no
+c├│digo.
+Entrada: nenhuma (valores fixos na main).
+Sa├¡da: duas linhas: valores de a e b antes e depois de troca(&a, &b).
+Casos de teste:
+3
+
+=== PAGE 4 ===
+Saida: a = 10, b = 20
+a = 20, b = 10
+Perguntas: por que ├⌐ preciso passar os endere├ºos (&a, &b)? O que aconteceria
+se a e b fossem passados por valor?
+5. [Dif├¡cil] Estat├¡sticas de um vetor com argc/argv. Escreva a fun├º├úo void
+estatisticas(float vet[], int n, float *media, float *maior) que calcula
+a m├⌐dia e o maior valor do vetor, devolvendo os dois resultados por refer├¬ncia. A
+main recebe n e os n elementos como argumentos da linha de comando (argc/argv),
+convertendo cada argumento com atof.
+Entrada: linha de comando: ./prog 5 4.5 7.0 1.5 9.0 3.5 (o 1┬║ argumento
+ap├│s o nome do programa ├⌐ n; seguem-se os n elementos).
+Sa├¡da: duas linhas: Media:
+X (1 casa decimal) e Maior:
+Y.
+Casos de teste:
+./prog 5 4.5 7.0 1.5 9.0 3.5
+->
+Media: 5.1 / Maior: 9.0
+./prog 3 1.0 2.0 4.0
+->
+Media: 2.3 / Maior: 4.0
+2. Recursividade
+1. [F├ícil] Fatorial.
+Escreva a fun├º├úo recursiva long long fat(int n): solu├º├úo
+trivial fat(0) = 1; solu├º├úo geral fat(n) = n * fat(n-1). A main l├¬ n e imprime
+Fatorial:
+X.
+Entrada: um inteiro n >= 0.
+Sa├¡da: a linha Fatorial:
+X.
+Casos de teste:
+Entrada: 0
+->
+Saida: Fatorial: 1
+Entrada: 1
+->
+Saida: Fatorial: 1
+Entrada: 5
+->
+Saida: Fatorial: 120
+Entrada: 10
+->
+Saida: Fatorial: 3628800
+Perguntas: identifique no c├│digo a solu├º├úo trivial e a solu├º├úo geral.
+2. [F├ícil] Potencia├º├úo. Escreva a fun├º├úo recursiva int pot(int x, int y) que
+calcula xy para inteiros n├úo negativos: solu├º├úo trivial x0 = 1; solu├º├úo geral xy =
+x ┬╖ xyΓêÆ1. Trate y = 0 antes de recorrer.
+Entrada: dois inteiros x e y (y >= 0).
+Sa├¡da: a linha Resultado:
+X.
+Casos de teste:
+Entrada: 2 0
+->
+Saida: Resultado: 1
+Entrada: 2 10
+->
+Saida: Resultado: 1024
+Entrada: 3 4
+->
+Saida: Resultado: 81
+Entrada: 5 3
+->
+Saida: Resultado: 125
+4
+
+=== PAGE 5 ===
+3. [F├ícil] Comprimento de string. Escreva a fun├º├úo recursiva int compr(const
+char *str) que devolve o n├║mero de caracteres da string. Solu├º├úo trivial: *str
+== ΓÇÖ\0ΓÇÖ devolve 0; solu├º├úo geral: 1 + compr(str + 1). Proibido usar strlen.
+Entrada: uma string (sem espa├ºos).
+Sa├¡da: a linha Comprimento:
+X.
+Casos de teste:
+Entrada: unisantos
+->
+Saida: Comprimento: 9
+Entrada: a
+->
+Saida: Comprimento: 1
+Entrada: (string vazia)
+->
+Saida: Comprimento: 0
+4. [M├⌐dio] Soma dos n primeiros naturais.
+Escreva a fun├º├úo recursiva int
+soma_nat(int n) que devolve 1 + 2 + ┬╖ ┬╖ ┬╖ + n: solu├º├úo trivial soma_nat(0) =
+0; solu├º├úo geral soma_nat(n) = n + soma_nat(n-1).
+Entrada: um inteiro n >= 0.
+Sa├¡da: a linha Soma:
+X.
+Casos de teste:
+Entrada: 0
+->
+Saida: Soma: 0
+Entrada: 1
+->
+Saida: Soma: 1
+Entrada: 5
+->
+Saida: Soma: 15
+Entrada: 100
+->
+Saida: Soma: 5050
+5. [Dif├¡cil] Torres de Han├│i. Escreva a fun├º├úo recursiva void hanoi(int n, char
+origem, char destino, char auxiliar) que imprime cada movimento no for-
+mato <origem> -> <destino>.
+L├│gica: (1) mova n-1 discos de origem para
+auxiliar; (2) imprima o movimento do disco restante origem -> destino; (3)
+mova n-1 discos de auxiliar para destino. A main chama hanoi(n, ΓÇÖAΓÇÖ, ΓÇÖCΓÇÖ,
+ΓÇÖBΓÇÖ) lendo n.
+Entrada: um inteiro n >= 1.
+Sa├¡da: uma linha por movimento, no formato X -> Y.
+Casos de teste:
+Entrada: 1
+->
+Saida: A -> C
+Entrada: 2
+->
+Saida: A -> B / A -> C / B -> C
+Entrada: 3
+->
+Saida: A -> C / A -> B / C -> B / A -> C /
+B -> A / B -> C / A -> C
+Perguntas: (a) quantos movimentos para n = 1, 2, 3? (b) qual a f├│rmula do
+n├║mero m├¡nimo de movimentos em fun├º├úo de n? (c) desenhe a pilha de execu├º├úo
+para hanoi(2, ΓÇÖAΓÇÖ, ΓÇÖCΓÇÖ, ΓÇÖBΓÇÖ).
+5
+
+=== PAGE 6 ===
+3. For├ºa Bruta
+1. [F├ícil] Busca sequencial.
+Escreva int busca_sequencial(int vet[], int
+n, int x) que percorre o vetor do in├¡cio ao fim e retorna o ├¡ndice da primeira
+ocorr├¬ncia de x, ou -1 se n├úo existir. A main l├¬ n, os n elementos e x (nessa ordem).
+Entrada: n; os n inteiros; o valor x.
+Sa├¡da: o ├¡ndice encontrado ou -1.
+Casos de teste:
+Entrada: 6 / 3 7 1 9 7 4 / 9
+->
+Saida: 3
+Entrada: 6 / 3 7 1 9 7 4 / 7
+->
+Saida: 1
+(primeira ocorr├¬ncia!)
+Entrada: 6 / 3 7 1 9 7 4 / 5
+->
+Saida: -1
+Entrada: 1 / 42 / 42
+->
+Saida: 0
+2. [F├ícil] Contagem de ocorr├¬ncias.
+Escreva int conta(int vet[], int n,
+int x) que conta quantas vezes x aparece no vetor. A main l├¬ os dados e imprime
+Ocorrencias:
+X.
+Entrada: n; os n elementos; x.
+Sa├¡da: a linha Ocorrencias:
+X.
+Casos de teste:
+Entrada: 6 / 3 7 1 9 7 4 / 7
+->
+Saida: Ocorrencias: 2
+Entrada: 6 / 3 7 1 9 7 4 / 5
+->
+Saida: Ocorrencias: 0
+Entrada: 5 / 2 2 2 2 2 / 2
+->
+Saida: Ocorrencias: 5
+3. [F├ícil] Ordena├º├úo por sele├º├úo.
+Escreva void selecao_direta(int n, int
+a[]): para cada i de 0 at├⌐ n-2, encontre o ├¡ndice k do menor elemento entre i
+e n-1 e troque a[i] com a[k]. A main imprime o vetor ap├│s cada passo (troca
+realizada).
+Entrada: n; os n elementos.
+Sa├¡da: n-1 linhas com o vetor ap├│s cada passo.
+Casos de teste:
+Entrada: 4 / 3 1 4 2
+Saida:
+1 3 4 2
+(passo 0: menor=1, trocado com a[0]=3)
+1 2 4 3
+(passo 1)
+1 2 3 4
+(passo 2)
+4. [M├⌐dio] Busca de palavra em texto (string matching).
+Escreva bool string_match(const char *s1, const char *s2) (m Γëñn) que
+verifica se s2 ├⌐ substring de s1 por for├ºa bruta: para cada posi├º├úo i de 0 at├⌐ n -
+m, compare s2[j] com s1[i + j]; se os m caracteres coincidirem, devolva true;
+ao final, false. A main imprime Encontrada ou Nao encontrada.
+Entrada: duas strings s1 e s2 (sem espa├ºos).
+Sa├¡da: Encontrada ou Nao encontrada.
+Casos de teste:
+6
+
+=== PAGE 7 ===
+Entrada: unisantos san
+->
+Saida: Encontrada
+Entrada: unisantos tnt
+->
+Saida: Nao encontrada
+Entrada: unisantos uni
+->
+Saida: Encontrada
+Entrada: aaa aa
+->
+Saida: Encontrada
+Entrada: abc abcd
+->
+Saida: Nao encontrada
+(m > n)
+5. [Dif├¡cil] Mochila booleana (recursiva). Escreva int mochila_rec(int p[],
+int v[], int c, int n, int item) que devolve o maior valor que cabe na mo-
+chila de capacidade c. Regra: se item >= n ou c == 0, devolva 0; se p[item]
+> c, obrigatoriamente pule o item (mochila_rec(p, v, c, n, item+1)); se-
+n├úo devolva o m├íximo entre v[item] + mochila_rec(p, v, c - p[item], n,
+item+1) (coloca) e mochila_rec(p, v, c, n, item+1) (n├úo coloca). A primeira
+chamada ├⌐ mochila_rec(p, v, c, n, 0).
+Entrada: capacidade c; n; os n pesos; os n valores (nesta ordem).
+Sa├¡da: a linha Valor maximo:
+X.
+Casos de teste:
+Entrada: 50 / 5 / 40 30 20 10 20 / 840 600 400 100 300
+Saida: Valor maximo: 1000
+(itens 2 e 3)
+Entrada: 10 / 3 / 6 5 4 / 12 10 8
+Saida: Valor maximo: 18
+(itens 2 e 3, peso 9)
+Entrada: 5 / 2 / 10 20 / 3 5
+Saida: Valor maximo: 0
+(nada cabe)
+Entrada: 7 / 1 / 7 / 20
+Saida: Valor maximo: 20
+Perguntas: quantos subconjuntos s├úo testados para n itens? Por que s├│ ├⌐ vi├ível
+para n pequeno?
+4. Divis├úo e Conquista
+1. [F├ícil] Maior elemento (divis├úo e conquista). Escreva int maior_dc(int
+vet[], int inicio, int fim): se o trecho tem 1 ou 2 elementos, devolva o maior
+entre eles; sen├úo divida ao meio, resolva as duas metades recursivamente e devolva
+o maior dos dois resultados.
+Entrada: n; os n elementos.
+Sa├¡da: a linha Maior:
+X.
+Casos de teste:
+Entrada: 8 / 12 5 88 3 45 67 1 90
+->
+Saida: Maior: 90
+Entrada: 2 / 4 4
+->
+Saida: Maior: 4
+Entrada: 1 / 7
+->
+Saida: Maior: 7
+2. [F├ícil] Busca bin├íria recursiva. Escreva int busca_binaria_rec(int vet[],
+int inicio, int fim, int x):
+se inicio > fim devolva -1; calcule meio =
+(inicio + fim)/2; se vet[meio] == x devolva meio; se vet[meio] > x busque
+├á esquerda; sen├úo busque ├á direita. Aten├º├úo: o vetor est├í ordenado.
+7
+
+=== PAGE 8 ===
+Entrada: n; os n elementos em ordem crescente; x.
+Sa├¡da: o ├¡ndice de x ou -1.
+Casos de teste:
+Entrada: 8 / 5 8 10 15 20 22 25 30 / 8
+->
+Saida: 1
+Entrada: 8 / 5 8 10 15 20 22 25 30 / 17
+->
+Saida: -1
+Entrada: 8 / 5 8 10 15 20 22 25 30 / 30
+->
+Saida: 7
+Entrada: 5 / 2 4 6 8 10 / 2
+->
+Saida: 0
+3. [F├ícil] Menor elemento (divis├úo e conquista). Escreva int menor_dc(int
+vet[], int inicio, int fim) (o an├ílogo do maior_dc para o menor elemento),
+com a mesma estrat├⌐gia de divis├úo ao meio.
+Entrada: n; os n elementos.
+Sa├¡da: a linha Menor:
+X.
+Casos de teste:
+Entrada: 8 / 12 5 88 3 45 67 1 90
+->
+Saida: Menor: 1
+Entrada: 3 / 9 2 5
+->
+Saida: Menor: 2
+Entrada: 1 / 42
+->
+Saida: Menor: 42
+4. [M├⌐dio] Mergesort.
+Implemente void intercala(int a[], int p, int q,
+int r) (fusione os trechos ordenados [p..q] e [q+1..r] em um vetor auxiliar
+e copie de volta) e void mergesort(int a[], int p, int r): se p < r, divida
+ao meio em q, ordene as duas metades recursivamente e intercale. A main imprime
+o vetor ap├│s cada intercala├º├úo.
+Entrada: n; os n elementos.
+Sa├¡da: o vetor ap├│s cada intercala├º├úo; a ├║ltima linha ├⌐ o vetor ordenado.
+Casos de teste:
+Entrada: 4 / 8 3 7 1
+Saida:
+3 8 1 7
+(intercala [3,8] e [1,7] das metades: ap├│s ordenar metades)
+1 3 7 8
+(intercala├º├úo final)
+5. [Dif├¡cil] Quicksort. Implemente void quicksort(int a[], int e, int d) com
+piv├┤ x = a[(e+d)/2]: avance i enquanto a[i] < x, recue j enquanto x < a[j],
+e se i <= j troque a[i] com a[j] (atualizando i++, jΓÇô); repita at├⌐ i > j; recorra
+em [e..j] e [i..d]. A main imprime o vetor ap├│s cada parti├º├úo completa.
+Entrada: n; os n elementos.
+Sa├¡da: o vetor ap├│s cada parti├º├úo; a ├║ltima linha ├⌐ o vetor ordenado.
+Casos de teste:
+Entrada: 6 / 55 44 22 11 66 33
+Saida:
+33 11 22 44 66 55
+(ap├│s a 1a particao: [22 11] | 44 | [66 55], ap├│s trocas parciais)
+11 22 33 44 55 66
+(vetor ordenado)
+8
+
+=== PAGE 9 ===
+Perguntas: (a) o quicksort tem etapa de combina├º├úo? (b) o que ocorre com o
+desempenho se o vetor j├í est├í ordenado e o piv├┤ ├⌐ sempre o elemento mediano? E
+se fosse o primeiro elemento?
+5. Algoritmos Gulosos
+1. [F├ícil] Problema do troco. Escreva void troco(int valor) que, usando notas
+de 100, 50, 20, 10, 5, 2 e 1, imprime quantas notas de cada valor s├úo usadas
+para compor valor com o menor n├║mero de notas. Formato: <qtd> nota(s) de
+R$<valor>. Imprima s├│ as notas usadas (quantidade > 0). Pare quando o valor
+restante chegar a 0.
+Entrada: um inteiro valor >= 0.
+Sa├¡da: uma linha por tipo de nota usada, da maior para a menor.
+Casos de teste:
+Entrada: 187
+->
+Saida: 1 nota(s) de R$100 / 1 nota(s) de R$50 /
+1 nota(s) de R$20 / 1 nota(s) de R$10 /
+1 nota(s) de R$5 / 1 nota(s) de R$2
+Entrada: 63
+->
+Saida: 1 nota(s) de R$50 / 1 nota(s) de R$10 /
+1 nota(s) de R$2 / 1 nota(s) de R$1
+Entrada: 0
+->
+Saida: (nada)
+2. [F├ícil] M├íximo de arquivos no pendrive. Escreva int max_arquivos(int
+capacidade, int tamanhos[], int n) que devolve o n├║mero m├íximo de arqui-
+vos que cabem no pendrive. Estrat├⌐gia gulosa: ordene os tamanhos em ordem
+crescente e v├í colocando arquivos enquanto couber.
+Entrada: capacidade; n; os n tamanhos.
+Sa├¡da: a linha Arquivos:
+X.
+Casos de teste:
+Entrada: 100 / 5 / 30 10 20 50 5
+->
+Saida: Arquivos: 4
+(5, 10, 20, 30; sobram 35)
+Entrada: 10 / 3 / 8 9 4
+->
+Saida: Arquivos: 1
+(s├│ o de 4 cabe com folga para nenhum outro)
+Entrada: 50 / 4 / 10 10 10 10
+->
+Saida: Arquivos: 4
+3. [F├ícil] Mochila fracion├íria (c├ílculo manual).
+Dados v = 60, 150, 120,
+200, w = 10, 20, 30, 40 e capacidade W = 50, resolva no papel pelas tr├¬s es-
+trat├⌐gias: (a) maior valor primeiro; (b) menor peso primeiro; (c) maior raz├úo va-
+lor/peso. Para cada uma indique as fra├º├╡es fi escolhidas e o valor total. N├úo ├⌐
+preciso programar.
+Sa├¡da: para cada estrat├⌐gia: fra├º├╡es e valor total.
+Casos de teste:
+9
+
+=== PAGE 10 ===
+(a) maior valor primeiro:
+f = {0, 1/2, 0, 1}
+->
+valor 275
+(b) menor peso primeiro:
+f = {1, 1, 2/3, 0}
+->
+valor 290
+(c) maior razao v/w:
+r = {6, 7.5, 4, 5}; f = {1, 1, 0, 1/2} ->
+valor 310
+(OTIMO)
+Perguntas: qual estrat├⌐gia ├⌐ a correta? Por que a gulosa funciona na mochila
+fracion├íria mas n├úo na booleana?
+4. [M├⌐dio] Escalonamento de intervalos (iterativo). Usando typedef struct
+int inicio; int fim;
+intervalo;, escreva void escalonamento(int n, intervalo
+evento[]): ordene os eventos por fim crescente (desempate por in├¡cio crescente),
+imprima o primeiro e depois, para cada evento seguinte, imprima-o somente se seu
+in├¡cio for estritamente maior que o fim do ├║ltimo evento impresso.
+Entrada: n; n pares de inteiros inicio fim.
+Sa├¡da: os intervalos escolhidos, um por linha, no formato (inicio,fim).
+Casos de teste:
+Entrada: 11 / 1 4 / 3 5 / 0 6 / 5 7 /
+3 9 / 5 9 / 6 10 / 8 11 / 8 12 / 2 14 / 12 16
+Saida:
+(1,4) / (5,7) / (8,11) / (12,16)
+Entrada: 3 / 1 5 / 2 3 / 4 6
+Saida:
+(2,3) / (4,6)
+5. [Dif├¡cil] Reservas do laborat├│rio. Leia N (1 ΓëñN Γëñ20) pedidos de reserva,
+cada um em uma linha no formato HH:MM HH:MM (in├¡cio e t├⌐rmino). Duas reservas
+s├úo compat├¡veis se o in├¡cio de uma for maior ou igual ao t├⌐rmino da outra (pode
+come├ºar exatamente quando a anterior termina). Estrat├⌐gia gulosa: ordene por
+t├⌐rmino crescente e escolha sempre a pr├│xima compat├¡vel. Converta os hor├írios
+para minutos desde 00:00 para comparar. Imprima apenas o n├║mero m├íximo de
+reservas.
+Entrada: N; N linhas com HH:MM HH:MM.
+Sa├¡da: um inteiro: o n├║mero m├íximo de reservas atendidas.
+Casos de teste:
+Entrada: 5 / 13:00 17:00 / 9:40 11:20 / 11:00 12:40 / 14:00 16:00 /
+7:40 11:00
+->
+Saida: 3
+Entrada: 2 / 9:00 10:00 / 10:00 11:00
+->
+Saida: 2
+(encadeamento perfeito)
+Entrada: 3 / 8:00 12:00 / 9:00 10:00 / 10:00 11:00
+->
+Saida: 2
+6. Programa├º├úo Din├ómica
+1. [F├ícil] Fibonacci (bottom-up). Escreva long long fib_bottomup(int n) por
+tabula├º├úo: tabela[0] = 0, tabela[1] = 1 e, para i de 2 at├⌐ n, tabela[i] =
+tabela[i-1] + tabela[i-2]. Devolva tabela[n].
+10
+
+=== PAGE 11 ===
+Entrada: um inteiro n >= 0.
+Sa├¡da: a linha Fib(n) = X.
+Casos de teste:
+Entrada: 0
+->
+Saida: Fib(0) = 0
+Entrada: 1
+->
+Saida: Fib(1) = 1
+Entrada: 10
+->
+Saida: Fib(10) = 55
+Entrada: 20
+->
+Saida: Fib(20) = 6765
+Entrada: 50
+->
+Saida: Fib(50) = 12586269025
+2. [F├ícil] Fibonacci (top-down). Escreva long long fib_topdown(int n) por
+memoization com uma tabela global inicializada com um sentinela (ex.: -1): se n
+<= 1 devolva n; se tabela[n] j├í foi calculada, devolva-a; sen├úo calcule recursiva-
+mente, armazene e devolva.
+Entrada: um inteiro n >= 0.
+Sa├¡da: a linha Fib(n) = X.
+Casos de teste:
+Entrada: 0
+->
+Saida: Fib(0) = 0
+Entrada: 10
+->
+Saida: Fib(10) = 55
+Entrada: 30
+->
+Saida: Fib(30) = 832040
+3. [F├ícil] Caracteriza├º├úo (te├│rico). Cite e explique as duas caracter├¡sticas que
+um problema deve apresentar para admitir solu├º├úo por programa├º├úo din├ómica:
+subestrutura ├│tima e sobreposi├º├úo de subproblemas. Ilustre ambas com a recorr├¬ncia
+Fn = FnΓêÆ1 + FnΓêÆ2.
+Sa├¡da: resposta escrita com: (a) defini├º├úo das duas caracter├¡sticas; (b) desenho da
+├írvore de chamadas de fib(4) com os n├│s repetidos circulados.
+Casos de teste:
+fib(4) chama fib(3) e fib(2);
+fib(3) chama fib(2) e fib(1);
+fib(2) chama fib(1) e fib(0);
+Subproblemas repetidos: fib(2) aparece 2x,
+fib(1) aparece 3x, fib(0) aparece 2x.
+4. [M├⌐dio] Mochila booleana com PD. Use uma tabela M[i][c] = melhor va-
+lor usando os itens 1..i com capacidade c, preenchida bottom-up: M[0][c] =
+0 para todo c; para cada item i e capacidade c, se p[i] > c ent├úo M[i][c] =
+M[i-1][c], sen├úo M[i][c] = max(M[i-1][c], v[i] + M[i-1][c - p[i]]). De-
+volva M[n][c].
+Entrada: capacidade c; n; os n pesos; os n valores.
+Sa├¡da: a linha Valor maximo:
+X.
+Casos de teste:
+11
+
+=== PAGE 12 ===
+Entrada: 50 / 5 / 40 30 20
+10 20 / 840 600 400 100 300
+->
+Saida: Valor maximo: 1000
+Entrada: 7 / 4 / 1 3 4 5 / 1 4 5 7
+->
+Saida: Valor maximo: 9
+Entrada: 4 / 3 / 4 5 6 / 5 6 7
+->
+Saida: Valor maximo: 7
+Perguntas: qual a complexidade em fun├º├úo de n e c? Compare com a for├ºa bruta
+(2n).
+5. [Dif├¡cil] Multiplica├º├úo de cadeia de matrizes.
+Para A1(4├ù10), A2(10├ù3),
+A3(3├ù12), A4(12├ù20) (vetor de dimens├╡es p = {4, 10, 3, 12, 20}), preencha a ta-
+bela M[i][j] bottom-up com M[i][j] = miniΓëñk<j{M[i, k] + M[k + 1, j] + piΓêÆ1pkpj},
+anotando o k vencedor de cada c├⌐lula. Preencha primeiro a diagonal (M[i][i] = 0),
+depois subsequ├¬ncias de tamanho 2, 3, 4.
+Entrada: nenhuma (c├ílculo no papel; opcionalmente implemente).
+Sa├¡da: a tabela M completa com os valores de k e a parentiza├º├úo ├│tima.
+Casos de teste:
+M[1][2] = 120 (k=1)
+M[2][3] = 360 (k=2)
+M[3][4] = 720 (k=3)
+M[1][3] = 264
+(k=2)
+M[2][4] = 1320 (k=3)
+M[1][4] = 1080 (k=2)
+->
+parentizacao otima: (A1 x A2) x (A3 x A4)
+12
+
+=== PAGE 13 ===
+2
+Lista B
+1. Fun├º├╡es
+1. [F├ícil] Impress├úo de vetor. Escreva void imprime_vetor(int v[], int n)
+que imprime o vetor no formato [a, b, c]: abre colchete, elementos separados
+por v├¡rgula e espa├ºo, fecha colchete, e quebra de linha ao final.
+Entrada: n; os n elementos.
+Sa├¡da: uma linha com o vetor no formato especificado.
+Casos de teste:
+Entrada: 4 / 3 7 1 9
+->
+Saida: [3, 7, 1, 9]
+Entrada: 1 / 5
+->
+Saida: [5]
+Entrada: 3 / -1 0 -2
+->
+Saida: [-1, 0, -2]
+2. [F├ícil] M├⌐dia de dois n├║meros. Escreva float media2(float a, float b)
+que devolve a m├⌐dia aritm├⌐tica. A main l├¬ dois reais e imprime Media:
+X com
+exatamente 2 casas decimais (use %.2f).
+Entrada: dois n├║meros reais.
+Sa├¡da: a linha Media:
+X (2 casas decimais).
+Casos de teste:
+Entrada: 7.0 3.0
+->
+Saida: Media: 5.00
+Entrada: 1.5 2.5
+->
+Saida: Media: 2.00
+Entrada: -4 10
+->
+Saida: Media: 3.00
+3. [F├ícil] Quadrado (passagem por valor). Escreva void quadrado(int x) que
+faz x = x * x dentro da fun├º├úo e imprime Quadrado:
+Y. A main l├¬ n, chama
+quadrado(n) e imprime Original:
+n ap├│s a chamada.
+Entrada: um inteiro n.
+Sa├¡da: duas linhas: Quadrado:
+n┬▓ e Original:
+n.
+Casos de teste:
+Entrada:
+6
+->
+Saida: Quadrado: 36 / Original: 6
+Entrada:
+-5
+->
+Saida: Quadrado: 25 / Original: -5
+Perguntas: o valor original mudou? Explique o que acontece com a c├│pia tempo-
+r├íria criada pela passagem por valor.
+4. [M├⌐dio] Convers├úo radianos para graus. Escreva void converte(float *angulo)
+que recebe um ├óngulo em radianos por refer├¬ncia e substitui o conte├║do apontado
+pelo valor em graus (graus = radianos ├ù 180/╧Ç). A main l├¬ o valor em radianos,
+chama a fun├º├úo com o endere├ºo da vari├ível e imprime o resultado com 2 casas
+decimais.
+Entrada: um n├║mero real (radianos).
+Sa├¡da: a linha Graus:
+X (2 casas decimais).
+Casos de teste:
+13
+
+=== PAGE 14 ===
+Entrada: 3.14159
+->
+Saida: Graus: 180.00
+Entrada: 1.5708
+->
+Saida: Graus: 90.00
+Entrada: 0
+->
+Saida: Graus: 0.00
+5. [Dif├¡cil] An├ílise de vetor por refer├¬ncia. Escreva void analisa(int vet[],
+int n, int *pares, int *impares, int *soma) que devolve por refer├¬ncia: quan-
+tos elementos s├úo pares, quantos s├úo ├¡mpares e a soma de todos. A main l├¬ n e os
+n elementos do teclado e imprime tr├¬s linhas.
+Entrada: n; os n inteiros.
+Sa├¡da: Pares:
+X, Impares:
+Y, Soma:
+Z (uma por linha).
+Casos de teste:
+Entrada: 6 / 4 7 2 9 1 6
+->
+Saida: Pares: 3 / Impares: 3 / Soma: 29
+Entrada: 4 / 2 4 6 8
+->
+Saida: Pares: 4 / Impares: 0 / Soma: 20
+Entrada: 3 / 1 3 5
+->
+Saida: Pares: 0 / Impares: 3 / Soma: 9
+2. Recursividade
+1. [F├ícil] Fibonacci recursivo. Escreva a fun├º├úo recursiva long long fib(int n)
+com solu├º├úo trivial fib(0) = 0, fib(1) = 1 e solu├º├úo geral fib(n) = fib(n-1)
++ fib(n-2).
+Entrada: um inteiro n >= 0.
+Sa├¡da: a linha Fib(n) = X.
+Casos de teste:
+Entrada: 0
+->
+Saida: Fib(0) = 0
+Entrada: 1
+->
+Saida: Fib(1) = 1
+Entrada: 10
+->
+Saida: Fib(10) = 55
+Entrada: 15
+->
+Saida: Fib(15) = 610
+2. [F├ícil] Soma de vetor.
+Escreva a fun├º├úo recursiva int somavet(const int
+vet[], int n): solu├º├úo trivial n == 1 devolve vet[0]; solu├º├úo geral vet[n-1] +
+somavet(vet, n-1).
+Entrada: n; os n inteiros.
+Sa├¡da: a linha Soma:
+X.
+Casos de teste:
+Entrada: 4 / 4 2 7 1
+->
+Saida: Soma: 14
+Entrada: 1 / 10
+->
+Saida: Soma: 10
+Entrada: 5 / -1 1 -1 1 0 ->
+Saida: Soma: 0
+3. [F├ícil] MDC (algoritmo de Euclides). Escreva a fun├º├úo recursiva int mdc(int
+a, int b): solu├º├úo trivial b == 0 devolve a; solu├º├úo geral mdc(b, a % b).
+Entrada: dois inteiros positivos a e b.
+Sa├¡da: a linha MDC: X.
+Casos de teste:
+14
+
+=== PAGE 15 ===
+Entrada: 48 36
+->
+Saida: MDC: 12
+Entrada: 7 3
+->
+Saida: MDC: 1
+Entrada: 100 10
+->
+Saida: MDC: 10
+Entrada: 13 13
+->
+Saida: MDC: 13
+4. [M├⌐dio] Multiplica├º├úo por somas sucessivas. Escreva a fun├º├úo recursiva int
+mult(int a, int b) que calcula a ├ù b somando: solu├º├úo trivial b == 1 devolve
+a; solu├º├úo geral a + mult(a, b-1). Assuma b >= 1.
+Entrada: dois inteiros a e b >= 1.
+Sa├¡da: a linha Produto:
+X.
+Casos de teste:
+Entrada: 4 3
+->
+Saida: Produto: 12
+Entrada: 5 1
+->
+Saida: Produto: 5
+Entrada: 7 6
+->
+Saida: Produto: 42
+Entrada: -3 4
+->
+Saida: Produto: -12
+Perguntas: essa recurs├úo ├⌐ de cauda (a chamada recursiva ├⌐ a ├║ltima opera├º├úo)?
+Se sim, o que os slides recomendam nesse caso?
+5. [Dif├¡cil] Pal├¡ndromo recursivo. Escreva a fun├º├úo recursiva bool palindromo(const
+char *s, int i, int j): se i >= j devolva true (solu├º├úo trivial); se s[i] !=
+s[j] devolva false; sen├úo devolva palindromo(s, i+1, j-1). A main l├¬ uma
+palavra e imprime Palindromo ou Nao palindromo (chame com palindromo(s,
+0, strlen(s)-1)).
+Entrada: uma palavra (sem espa├ºos).
+Sa├¡da: Palindromo ou Nao palindromo.
+Casos de teste:
+Entrada: arara
+->
+Saida: Palindromo
+Entrada: banana
+->
+Saida: Nao palindromo
+Entrada: a
+->
+Saida: Palindromo
+Entrada: 12321
+->
+Saida: Palindromo
+Entrada: (vazio)
+->
+Saida: Palindromo
+3. For├ºa Bruta
+1. [F├ícil] Maior elemento (for├ºa bruta).
+Escreva int maior_fb(int n, int
+vet[]) que percorre o vetor uma ├║nica vez mantendo o maior valor visto. Comece
+assumindo que o maior ├⌐ vet[0] e percorra de 1 at├⌐ n-1.
+Entrada: n; os n elementos.
+Sa├¡da: a linha Maior:
+X.
+Casos de teste:
+Entrada: 6 / 12 5 88 3 45 67
+->
+Saida: Maior: 88
+Entrada: 2 / 9 9
+->
+Saida: Maior: 9
+Entrada: 5 / -5 -2 -9 -1 -7
+->
+Saida: Maior: -1
+15
+
+=== PAGE 16 ===
+2. [F├ícil] Bubble sort.
+Escreva void bubblesort(int n, int a[]): fa├ºa n-1
+passagens; em cada passagem, para j de 0 at├⌐ n-2-i, troque a[j] com a[j+1] se
+estiverem fora de ordem. A main imprime o vetor ap├│s cada passagem.
+Entrada: n; os n elementos.
+Sa├¡da: o vetor ap├│s cada uma das n-1 passagens.
+Casos de teste:
+Entrada: 5 / 5 1 4 2 8
+Saida:
+1 4 2 5 8
+(passagem 0)
+1 2 4 5 8
+(passagem 1)
+1 2 4 5 8
+(passagem 2, sem trocas)
+1 2 4 5 8
+(passagem 3)
+3. [F├ícil] Insertion sort. Escreva void insercao(int n, int a[]): para cada i
+de 1 at├⌐ n-1, guarde aux = a[i] e desloque os elementos maiores que aux uma
+posi├º├úo ├á direita, inserindo aux na posi├º├úo correta. Imprima o vetor ap├│s cada
+inser├º├úo.
+Entrada: n; os n elementos.
+Sa├¡da: o vetor ap├│s cada passo.
+Casos de teste:
+Entrada: 4 / 44 55 12 42
+Saida:
+44 55 12 42
+(passo 0: 55 ja estava ordenado)
+12 44 55 42
+(passo 1: 12 inserido no inicio)
+12 42 44 55
+(passo 2)
+4. [M├⌐dio] Contagem de substrings. Escreva int conta_substring(const char
+*s1, const char *s2) que conta quantas vezes s2 ocorre em s1, considerando
+apenas ocorr├¬ncias n├úo sobrepostas: ap├│s encontrar uma ocorr├¬ncia em i, a
+pr├│xima busca come├ºa em i + m.
+Entrada: duas strings s1 e s2.
+Sa├¡da: a linha Ocorrencias:
+X.
+Casos de teste:
+Entrada: aaaa aa
+->
+Saida: Ocorrencias: 2
+Entrada: unisantos nt
+->
+Saida: Ocorrencias: 1
+Entrada: unisantos s
+->
+Saida: Ocorrencias: 2
+Entrada: abc abcabc abc
+->
+Saida: Ocorrencias: 2
+Entrada: abc xyz
+->
+Saida: Ocorrencias: 0
+5. [Dif├¡cil] Pontos mais pr├│ximos (for├ºa bruta). Usando struct ponto
+int
+x; int y; ;, escreva double pontos_mais_proximos(int n, struct ponto p[])
+que testa todo par (i, j) com i < j, calcula a
+Euclidiana d =
+ΓêÜ∩╕ü
+(xi ΓêÆxj)2 + (yi ΓêÆyj)2 e devolve a menor delas. A main l├¬ n e os
+n pontos e imprime a dist├óncia com 2 casas decimais.
+Entrada: n; n linhas com x y.
+Sa├¡da: a linha Distancia:
+X (2 casas decimais).
+Casos de teste:
+16
+
+=== PAGE 17 ===
+Entrada: 4 / 1 2 / 4 6 / 1 3 / 8 8
+->
+Saida: Distancia: 1.00
+(par (1,2)-(1,3))
+Entrada: 2 / 0 0 / 3 4
+->
+Saida: Distancia: 5.00
+Entrada: 3 / 0 0 / 10 0 / 0 10
+->
+Saida: Distancia: 10.00
+Perguntas: quantos pares s├úo testados para n pontos? Por que fica impratic├ível
+para n grande?
+4. Divis├úo e Conquista
+1. [F├ícil] Menor elemento (divis├úo e conquista).
+Escreva int min_dc(int
+vet[], int inicio, int fim): para trechos de 1 ou 2 elementos devolva o me-
+nor diretamente; sen├úo divida ao meio e devolva o menor entre as duas metades
+resolvidas recursivamente.
+Entrada: n; os n elementos.
+Sa├¡da: a linha Menor:
+X.
+Casos de teste:
+Entrada: 8 / 12 5 88 3 45 67 1 90
+->
+Saida: Menor: 1
+Entrada: 4 / 9 2 5 7
+->
+Saida: Menor: 2
+Entrada: 2 / 3 3
+->
+Saida: Menor: 3
+2. [F├ícil] Simula├º├úo da busca bin├íria. Suponha que v[i] = i para todo i (vetor
+ordenado contendo os pr├│prios ├¡ndices). Execute a busca bin├íria no papel para
+os tr├¬s casos ao lado. Para cada caso, escreva uma tabela com as colunas inicio,
+final e meio a cada itera├º├úo, e indique o que ├⌐ devolvido.
+Entrada: par├ómetros n e x conforme cada caso.
+Sa├¡da: tabela de itera├º├╡es e valor devolvido.
+Casos de teste:
+(a) n = 9,
+x = 3
+->
+encontra o indice 3
+(b) n = 14, x = 7
+->
+encontra o indice 7
+(c) n = 15, x = 7
+->
+encontra o indice 7
+(desafio) em (a), (b) e (c),
+quantas iteracoes foram feitas? O que muda entre n par e n impar?
+3. [F├ícil] Busca bin├íria com contagem de divis├╡es. Escreva int busca_bin_conta(int
+vet[], int n, int x, int *divisoes) (vers├úo iterativa) que devolve o ├¡ndice
+de x (ou -1) e, por refer├¬ncia, quantas vezes o intervalo foi dividido ao meio.
+Entrada: n; os n elementos ordenados; x.
+Sa├¡da: o ├¡ndice e o n├║mero de divis├╡es.
+Casos de teste:
+Entrada: 8 / 5 8 10 15 20 22 25 30 / 25
+->
+Saida: indice 6, 2 divisoes
+Entrada: 8 / 5 8 10 15 20 22 25 30 / 17
+->
+Saida: indice -1, 3 divisoes
+Entrada: 1 / 42 / 42
+->
+Saida: indice 0, 0 divisoes
+17
+
+=== PAGE 18 ===
+4. [M├⌐dio] Simula├º├úo do mergesort. Para o vetor v = 55, 44, 22, 11, 66,
+33, desenhe no papel: (1) a ├írvore de divis├╡es at├⌐ chegar a vetores de 1 elemento; (2)
+o resultado de cada intercala├º├úo, do n├¡vel mais baixo at├⌐ o vetor completo. Depois
+implemente mergesort + intercala e confira se o papel bate com a execu├º├úo.
+Entrada: n = 6; os 6 elementos.
+Sa├¡da: desenho da ├írvore + vetor ap├│s cada intercala├º├úo; final 11 22 33 44 55
+66.
+Casos de teste:
+Divisoes: [55 44 22] [11 66 33] -> [55 44] [22] | [11 66] [33] -> ...
+Intercalacoes de 2: [44 55] [22] | [11 66] [33]
+Intercalacoes de 3: [22 44 55] [11 33 66]
+Intercalacao final: 11 22 33 44 55 66
+5. [Dif├¡cil] Simula├º├úo do quicksort. Simule no papel o quicksort com piv├┤ no
+elemento mediano para v = 44, 55, 12, 42, 94, 18, 67. Para cada chamada,
+indique: o subvetor, o piv├┤ x, a posi├º├úo final de i e j e o vetor resultante. Depois
+implemente e confira.
+Entrada: n = 7; os 7 elementos.
+Sa├¡da: estado do vetor ap├│s cada parti├º├úo, com identifica├º├úo das chamadas recur-
+sivas.
+Casos de teste:
+1a chamada (0..6): pivo = 42; apos particoes e trocas:
+18 12 | 42 | 55 94 67 -> recursao em [0..1] e [3..6]
+Subvetor esq [18 12]: pivo = media(18,12); troca -> 12 18
+Subvetor dir [55 94 67]: pivo = 94; apos trocas:
+55 67 94 -> recursao em [3..4] e [5..6]
+Vetor final: 12 18 42 44 55 67 94
+Perguntas: quantas parti├º├╡es e quantas trocas ocorreram no total?
+5. Algoritmos Gulosos
+1. [F├ícil] Troco com moedas. Escreva void troco_moedas(int centavos) usando
+moedas de 50, 25, 10, 5 e 1 centavos, imprimindo <qtd> moeda(s) de <valor>c
+para cada moeda usada, da maior para a menor.
+Entrada: um inteiro centavos >= 0.
+Sa├¡da: uma linha por tipo de moeda usada.
+Casos de teste:
+Entrada: 91
+->
+Saida: 1 moeda(s) de 50c / 1 moeda(s) de 25c /
+1 moeda(s) de 10c / 1 moeda(s) de 5c / 1 moeda(s) de 1c
+Entrada: 30
+->
+Saida: 1 moeda(s) de 25c /
+1 moeda(s) de 5c
+Entrada: 4
+->
+Saida: 4 moeda(s) de 1c
+18
+
+=== PAGE 19 ===
+2. [F├ícil] Verifica├º├úo gulosa de pagamento.
+Escreva bool pode_pagar(int
+valor, int notas[], int n) que verifica se ├⌐ poss├¡vel compor valor exata-
+mente com as notas dispon├¡veis: a cada passo, use o m├íximo poss├¡vel da maior
+nota e v├í descendo; se sobrar valor n├úo composto, devolva false. A main imprime
+Possivel ou Impossivel.
+Entrada: valor; n; as n notas em ordem decrescente.
+Sa├¡da: Possivel ou Impossivel.
+Casos de teste:
+Entrada: 87 / 5 / 50 20 10 5 2
+->
+Saida: Possivel
+(50+20+10+5+2)
+Entrada: 87 / 3 / 50 20 20
+->
+Saida: Impossivel (sobram 17)
+Entrada: 0 / 2 / 10 5
+->
+Saida: Possivel
+(valor zero)
+3. [F├ícil] Mochila fracion├íria (c├ílculo manual). Dados v = 100, 200, 120, w
+= 10, 20, 30 e W = 50, calcule no papel o valor m├íximo pela estrat├⌐gia da maior
+raz├úo valor/peso. Calcule ri = vi/wi, ordene, e preencha a mochila inteiramente
+at├⌐ sobrar espa├ºo; nesse caso pegue a fra├º├úo do pr├│ximo item.
+Sa├¡da: raz├╡es ordenadas, fra├º├╡es fi de cada item e valor total.
+Casos de teste:
+r = {10, 10, 4}
+->
+ordem: itens 1 e 2 (empate, qualquer), depois item 3
+f = {1, 1, 2/3}
+->
+peso: 10 + 20 + (2/3)*30 = 50
+(capacidade exata)
+valor = 100 + 200 + (2/3)*120 = 380
+(OTIMO)
+4. [M├⌐dio] Escalonamento de intervalos (recursivo). Implemente a vers├úo re-
+cursiva: coloque um intervalo fict├¡cio 0, 0 na posi├º├úo 0 do vetor, ordene os eventos
+reais (posi├º├╡es 1 a n) por fim crescente, e escreva void escalonamento_rec(intervalo
+evento[], int e, int d) que encontra o primeiro evento ap├│s e com in├¡cio maior
+que evento[e].fim, imprime-o e recorre a partir dele.
+Entrada: n; n pares inicio fim.
+Sa├¡da: os intervalos escolhidos, um por linha, no formato (inicio,fim).
+Casos de teste:
+Entrada: 3 / 1 5 / 2 3 / 4 6
+->
+Saida: (2,3) / (4,6)
+Entrada: 4 / 1 2 / 2 3 / 3 4 / 0 10
+->
+Saida: (1,2) / (3,4)
+Entrada: 2 / 0 100 / 1 2
+->
+Saida: (1,2)
+5. [Dif├¡cil] Reservas do laborat├│rio (com impress├úo dos hor├írios). Mesmas
+regras do problema da Lista A (reservas HH:MM HH:MM, compat├¡veis se in├¡cio ΓëÑt├⌐r-
+mino), mas a sa├¡da deve conter primeiro o n├║mero total e depois os hor├írios
+escolhidos, um por linha, no formato original.
+Entrada: N; N linhas HH:MM HH:MM.
+Sa├¡da: um inteiro, seguido dos hor├írios escolhidos.
+Casos de teste:
+19
+
+=== PAGE 20 ===
+Entrada: 6 / 9:00 10:00 / 10:00 11:30 /
+9:30 12:00 / 13:00 14:00 / 14:30 15:00 /
+8:00 9:30
+Saida:
+4
+8:00 9:30
+10:00 11:30
+13:00 14:00
+14:30 15:00
+6. Programa├º├úo Din├ómica
+1. [F├ícil] Fibonacci com impress├úo da sequ├¬ncia. Escreva void fib_sequencia(int
+n) por tabula├º├úo que imprime todos os termos de F0 a Fn na mesma linha, sepa-
+rados por espa├ºo.
+Entrada: um inteiro n >= 0.
+Sa├¡da: os n+1 termos separados por espa├ºo.
+Casos de teste:
+Entrada: 0
+->
+Saida: 0
+Entrada: 1
+->
+Saida: 0 1
+Entrada: 10
+->
+Saida: 0 1 1 2 3 5 8 13 21 34 55
+2. [F├ícil] Fibonacci (top-down). Escreva long long fib_topdown(int n) por
+memoization: tabela global inicializada com -1; se n <= 1 devolva n; se tabela[n]
+!= -1 devolva tabela[n]; sen├úo calcule, armazene e devolva.
+Entrada: um inteiro n >= 0.
+Sa├¡da: a linha Fib(n) = X.
+Casos de teste:
+Entrada: 0
+->
+Saida: Fib(0) = 0
+Entrada: 2
+->
+Saida: Fib(2) = 1
+Entrada: 10
+->
+Saida: Fib(10) = 55
+Entrada: 30
+->
+Saida: Fib(30) = 832040
+3. [F├ícil] Top-down vs bottom-up (te├│rico). Complete a tabela comparativa
+entre as abordagens top-down (memoization) e bottom-up (tabula├º├úo) nos quesitos:
+facilidade de pensar o problema, simplicidade do c├│digo, quais subproblemas s├úo
+resolvidos e o que ├⌐ armazenado na tabela.
+Sa├¡da: tabela preenchida com 4 linhas (uma por quesito) e 2 colunas (uma por
+abordagem).
+Casos de teste:
+Exemplo de linha: ΓÇÖSubproblemas resolvidosΓÇÖ |
+top-down: apenas os necessarios |
+bottom-up: todos, do menor ao maior
+20
+
+=== PAGE 21 ===
+4. [M├⌐dio] Mochila booleana com PD. Preencha a tabela M[i][c] bottom-up para
+p = 1, 3, 4, 5, v = 1, 4, 5, 7 e capacidade c = 7, com a regra: se p[i] >
+c, M[i][c] = M[i-1][c]; sen├úo M[i][c] = max(M[i-1][c], v[i] + M[i-1][c
+- p[i]]). Apresente a tabela completa (5 linhas ├ù 8 colunas, de c = 0 a 7) e o
+valor ├│timo.
+Sa├¡da: a tabela completa e o valor ├│timo.
+Casos de teste:
+M[1][c] = c
+(item 1: peso 1, valor 1 -> cabe em toda capacidade)
+M[4][7] = 9
+->
+itens de peso 3 (valor 4) e 4 (valor 5)
+Otimo: 9
+5. [Dif├¡cil] Multiplica├º├úo de cadeia de matrizes. Para A1(10├ù30), A2(30├ù5),
+A3(5├ù60) (p = {10, 30, 5, 60}), preencha a tabela M[i][j] bottom-up com M[i][j] =
+miniΓëñk<j{M[i, k] + M[k + 1, j] + piΓêÆ1pkpj}. Mostre o c├ílculo completo de cada
+c├⌐lula fora da diagonal.
+Sa├¡da: tabela 3├ù3, custo m├¡nimo e parentiza├º├úo ├│tima.
+Casos de teste:
+M[1][2] = 10*30*5 = 1500
+M[2][3] = 30*5*60 = 9000
+M[1][3]: k=1 -> 0 + 9000 + 10*30*60 = 27000;
+k=2 -> 1500 + 0 + 10*5*60 = 4500
+(k=2 vence)
+Custo minimo: 4500
+->
+parentizacao: (A1 x A2) x A3
+21
+
+=== PAGE 22 ===
+3
+Lista C
+1. Fun├º├╡es
+1. [F├ícil] Cabe├ºalho.
+Escreva void cabecalho(const char *titulo) que im-
+prime o t├¡tulo entre duas linhas de = (ex.: ===== CALCULADOR =====, com strlen(titulo)
++ 4 caracteres = em cada linha). A main l├¬ uma frase de at├⌐ 50 caracteres (sem
+espa├ºos) e chama a fun├º├úo.
+Entrada: uma palavra ou frase sem espa├ºos (at├⌐ 50 caracteres).
+Sa├¡da: linha de =, t├¡tulo entre espa├ºos, linha de =.
+Casos de teste:
+Entrada: PROVA
+->
+Saida: ===========
+PROVA
+===========
+Entrada: C
+->
+Saida: =====
+C
+=====
+2. [F├ícil] Valor absoluto. Escreva int absoluto(int x) que devolve |x| sem usar
+nenhuma fun├º├úo da math.h (use uma condi├º├úo).
+Entrada: um inteiro.
+Sa├¡da: a linha Absoluto:
+X.
+Casos de teste:
+Entrada: -7
+->
+Saida: Absoluto: 7
+Entrada: 3
+->
+Saida: Absoluto: 3
+Entrada: 0
+->
+Saida: Absoluto: 0
+3. [F├ícil] Incremento (passagem por valor). Escreva void incrementa(int x)
+que faz x++ dentro da fun├º├úo. A main declara n = 5, chama incrementa(n) e
+imprime n.
+Entrada: nenhuma (n = 5 fixo na main).
+Sa├¡da: o valor impresso de n.
+Casos de teste:
+Saida: 5
+Perguntas: por que n├úo foi impresso 6? O que o par├ómetro formal x representa
+na mem├│ria?
+4. [M├⌐dio] Divis├úo inteira por refer├¬ncia. Escreva void divisao(int a, int
+b, int *q, int *r) que devolve por refer├¬ncia o quociente e o resto de a dividido
+por b, sem usar os operadores / e %: subtraia b de a repetidamente, contando
+quantas subtra├º├╡es foram feitas; o que sobrar ├⌐ o resto. Assuma a >= 0 e b > 0.
+22
+
+=== PAGE 23 ===
+Entrada: dois inteiros a >= 0 e b > 0.
+Sa├¡da: Quociente:
+X e Resto:
+Y.
+Casos de teste:
+Entrada: 17 5
+->
+Saida: Quociente: 3 / Resto: 2
+Entrada: 20 4
+->
+Saida: Quociente: 5 / Resto: 0
+Entrada: 3 10
+->
+Saida: Quociente: 0 / Resto: 3
+5. [Dif├¡cil] Soma de matrizes. Escreva void soma_matrizes(int a[][10], int
+b[][10], int c[][10], int n) que soma duas matrizes n ├ù n (limite m├íximo
+10). A main l├¬ n e os elementos de a e b, chama a fun├º├úo e imprime a matriz c
+com uma linha por linha da matriz e elementos separados por espa├ºo.
+Entrada: n (1 Γëñn Γëñ10); os n2 elementos de a; os n2 elementos de b (linha a
+linha).
+Sa├¡da: as n linhas da matriz soma.
+Casos de teste:
+Entrada: 2 / 1 2 / 3 4 / 5 6 / 7 8
+->
+Saida: 6 8 / 10 12
+Entrada: 1 / 5 / 5
+->
+Saida: 10
+2. Recursividade
+1. [F├ícil] Fatorial. Escreva a fun├º├úo recursiva long long fat(int n) e a main que
+l├¬ n do teclado.
+Entrada: um inteiro n >= 0.
+Sa├¡da: a linha Fatorial:
+X.
+Casos de teste:
+Entrada: 0
+->
+Saida: Fatorial: 1
+Entrada: 6
+->
+Saida: Fatorial: 720
+Entrada: 3
+->
+Saida: Fatorial: 6
+2. [F├ícil] Potencia├º├úo. Escreva a fun├º├úo recursiva int pot(int x, int y) com
+solu├º├úo trivial x0 = 1 e solu├º├úo geral xy = x ┬╖ xyΓêÆ1.
+Entrada: dois inteiros x, y >= 0.
+Sa├¡da: a linha Resultado:
+X.
+Casos de teste:
+Entrada: 3 4
+->
+Saida: Resultado: 81
+Entrada: 2 8
+->
+Saida: Resultado: 256
+Entrada: 9 0
+->
+Saida: Resultado: 1
+3. [F├ícil] Soma de vetor.
+Escreva a fun├º├úo recursiva int somavet(const int
+vet[], int n) (solu├º├úo trivial n == 1; solu├º├úo geral vet[n-1] + somavet(vet,
+n-1)).
+Entrada: n; os n inteiros.
+Sa├¡da: a linha Soma:
+X.
+Casos de teste:
+23
+
+=== PAGE 24 ===
+Entrada: 4 / 10 20 30 40
+->
+Saida: Soma: 100
+Entrada: 2 / -3 3
+->
+Saida: Soma: 0
+4. [M├⌐dio] Par ou ├¡mpar (recurs├úo indireta). Escreva bool par(int n) e bool
+impar(int n) com recurs├úo indireta: par devolve true se n == 0, false se n ==
+1, sen├úo devolve impar(n-1); impar devolve true se n == 1, false se n == 0,
+sen├úo devolve par(n-1). A main l├¬ um n├║mero e imprime par ou impar.
+Entrada: um inteiro n >= 0.
+Sa├¡da: a palavra par ou impar.
+Casos de teste:
+Entrada: 10
+->
+Saida: par
+Entrada: 7
+->
+Saida: impar
+Entrada: 0
+->
+Saida: par
+Entrada: 1
+->
+Saida: impar
+5. [Dif├¡cil] Contagem de chamadas do Fibonacci. Escreva o fib recursivo in-
+g├¬nuo com uma vari├ível global long long chamadas incrementada no in├¡cio de
+cada chamada. A main imprime, para cada n, o valor de fib(n) e o n├║mero de
+chamadas.
+Entrada: um inteiro n.
+Sa├¡da: duas linhas: Fib(n) = X e Chamadas:
+Y.
+Casos de teste:
+Entrada: 10
+->
+Saida: Fib(10) = 55 / Chamadas: 177
+Entrada: 15
+->
+Saida: Fib(15) = 610 / Chamadas: 1973
+Entrada: 20
+->
+Saida: Fib(20) = 6765 / Chamadas: 21891
+Perguntas: (a) como o n├║mero de chamadas cresce?
+(b) qual subproblema ├⌐
+recalculado mais vezes? (c) o que a programa├º├úo din├ómica faz para resolver isso?
+3. For├ºa Bruta
+1. [F├ícil] Busca de caractere em string. Escreva int busca_char(const char
+*s, char c) que retorna o ├¡ndice da primeira ocorr├¬ncia do caractere c em s, ou
+-1. N├úo use strchr.
+Entrada: uma string e um caractere (separados por espa├ºo).
+Sa├¡da: o ├¡ndice ou -1.
+Casos de teste:
+Entrada: unisantos s
+->
+Saida: 2
+Entrada: unisantos x
+->
+Saida: -1
+Entrada: aaa a
+->
+Saida: 0
+24
+
+=== PAGE 25 ===
+2. [F├ícil] Bubble sort. Escreva void bubblesort(int n, int a[]) e mostre o
+vetor ap├│s cada passagem para o caso ao lado.
+Entrada: n; os n elementos.
+Sa├¡da: o vetor ap├│s cada passagem.
+Casos de teste:
+Entrada: 5 / 9 4 7 1 3
+Saida:
+4 7 1 3 9
+(passagem 0)
+4 1 3 7 9
+(passagem 1)
+1 3 4 7 9
+(passagem 2)
+1 3 4 7 9
+(passagem 3)
+3. [F├ícil] Sele├º├úo direta com rastreamento. Escreva void selecao_direta(int
+n, int a[]) que, a cada passo i, encontra o ├¡ndice k do menor elemento em
+[i..n-1] e troca com a[i]. Imprima Passo i:
+k = <indice> seguido do vetor.
+Entrada: n; os n elementos.
+Sa├¡da: n-1 linhas de rastreamento com o vetor.
+Casos de teste:
+Entrada: 5 / 9 4 7 1 3
+Saida:
+Passo 0: k = 3 -> 1 4 7 9 3
+Passo 1: k = 3 -> 1 3 7 9 4
+Passo 2: k = 4 -> 1 3 4 9 7
+Passo 3: k = 4 -> 1 3 4 7 9
+4. [M├⌐dio] String match com posi├º├úo. Escreva int string_match_pos(const
+char *s1, const char *s2) que retorna a posi├º├úo (├¡ndice) da primeira ocor-
+r├¬ncia de s2 em s1, ou -1 (for├ºa bruta: tente cada alinhamento i de 0 at├⌐ n -
+m).
+Entrada: duas strings s1 e s2.
+Sa├¡da: a posi├º├úo ou -1.
+Casos de teste:
+Entrada: unisantos san
+->
+Saida: 2
+Entrada: unisantos tnt
+->
+Saida: -1
+Entrada: unisantos uni
+->
+Saida: 0
+Entrada: abc abc
+->
+Saida: 0
+Entrada: abc abcd
+->
+Saida: -1
+(m > n)
+5. [Dif├¡cil] Mochila booleana (iterativa, for├ºa bruta com bits). Escreva int
+mochila_iter(int p[], int v[], int c, int n) que enumera todos os 2n sub-
+conjuntos: para cada m├íscara i de 0 at├⌐ 2n ΓêÆ1, o bit j de i (testado com (i ┬╗ j)
+% 2) indica se o item j est├í no subconjunto; some peso e valor dos itens escolhidos
+e guarde o maior valor cujo peso n├úo exceda c.
+Entrada: capacidade c; n; os n pesos; os n valores.
+Sa├¡da: a linha Valor maximo:
+X.
+Casos de teste:
+25
+
+=== PAGE 26 ===
+Entrada: 50 / 5 / 40 30 20 10 20 / 840 600 400 100 300
+->
+Saida: Valor maximo: 1000
+Entrada: 7 / 4 / 1 3 4 5 / 1 4 5 7
+->
+Saida: Valor maximo: 9
+Entrada: 3 / 2 / 4 5 / 10 20
+->
+Saida: Valor maximo: 0
+4. Divis├úo e Conquista
+1. [F├ícil] Maior elemento (divis├úo e conquista). Escreva int maior_dc(int
+vet[], int inicio, int fim). Teste com o caso ao lado.
+Entrada: n; os n elementos.
+Sa├¡da: a linha Maior:
+X.
+Casos de teste:
+Entrada: 5 / 5 12 3 20 8
+->
+Saida: Maior: 20
+Entrada: 2 / 7 7
+->
+Saida: Maior: 7
+2. [F├ícil] Busca bin├íria iterativa. Escreva int busca_binaria_iter(int vet[],
+int n, int x): enquanto inicio <= fim, calcule meio; se vet[meio] == x de-
+volva meio; se vet[meio] > x busque ├á esquerda (final = meio - 1); sen├úo ├á
+direita (inicio = meio + 1).
+Entrada: n; os n elementos ordenados; x.
+Sa├¡da: o ├¡ndice ou -1.
+Casos de teste:
+Entrada: 6 / 2 4 6 8 10 12 / 8
+->
+Saida: 3
+Entrada: 6 / 2 4 6 8 10 12 / 7
+->
+Saida: -1
+Entrada: 6 / 2 4 6 8 10 12 / 2
+->
+Saida: 0
+Entrada: 6 / 2 4 6 8 10 12 / 12
+->
+Saida: 5
+3. [F├ícil] Menor elemento (divis├úo e conquista). Escreva int menor_dc(int
+vet[], int inicio, int fim) com a mesma estrat├⌐gia do maior_dc.
+Entrada: n; os n elementos.
+Sa├¡da: a linha Menor:
+X.
+Casos de teste:
+Entrada: 5 / 5 12 3 20 8
+->
+Saida: Menor: 3
+Entrada: 3 / 0 -1 9
+->
+Saida: Menor: -1
+4. [M├⌐dio] Mergesort completo. Implemente mergesort e intercala e ordene
+o vetor ao lado. Pergunta: quantas intercala├º├╡es ocorrem para um vetor de 5
+elementos? E para n elementos (em fun├º├úo de n)?
+Entrada: n; os n elementos.
+Sa├¡da: o vetor ordenado.
+Casos de teste:
+26
+
+=== PAGE 27 ===
+Entrada: 5 / 9 7 5 3 1
+->
+Saida: 1 3 5 7 9
+Entrada: 1 / 42
+->
+Saida: 42
+5. [Dif├¡cil] Quicksort com contadores. Implemente o quicksort acrescentando
+duas vari├íveis globais int trocas e int particoes, incrementadas nos pontos
+correspondentes. Rode para v1 = 55, 44, 22, 11, 66, 33 e para v2 = 11, 22,
+33, 44, 55, 66 (j├í ordenado) e compare os contadores.
+Entrada: n; os n elementos.
+Sa├¡da: vetor ordenado, Trocas:
+X, Particoes:
+Y.
+Casos de teste:
+Entrada: 6 / 55 44 22 11 66 33
+->
+Saida: 11 22 33 44 55 66 / Trocas e particoes conforme execucao
+Entrada: 6 / 11 22 33 44 55 66
+->
+Saida: 11 22 33 44 55 66 / Trocas e particoes conforme execucao
+Perguntas: o experimento revela algo sobre o pior caso do quicksort? O que muda
+se o vetor j├í est├í ordenado?
+5. Algoritmos Gulosos
+1. [F├ícil] Problema do troco.
+Escreva void troco(int valor) com as notas
+100, 50, 20, 10, 5, 2, 1. Teste com os casos ao lado.
+Entrada: um inteiro valor >= 0.
+Sa├¡da: uma linha por nota usada.
+Casos de teste:
+Entrada: 63
+->
+Saida: 1 nota(s) de R$50 /
+1 nota(s) de R$10 / 1 nota(s) de R$2 / 1 nota(s) de R$1
+Entrada: 100 ->
+Saida: 1 nota(s) de R$100
+Entrada: 8
+->
+Saida: 1 nota(s) de R$5 /
+1 nota(s) de R$2 / 1 nota(s) de R$1
+2. [F├ícil] Quando o guloso falha (contraexemplo). (a) ├Ç m├úo: com notas de
+5, 4 e 1, execute a estrat├⌐gia gulosa para o valor 8: quantas notas s├úo usadas e
+quais? (b) Qual ├⌐ a solu├º├úo ├│tima? (c) Escreva void troco_geral(int valor,
+int notas[], int n) que executa o guloso com as notas do vetor (em ordem
+decrescente) e imprime as notas usadas, confirmando o resultado de (a).
+Entrada: para o c├│digo: valor; n; as n notas em ordem decrescente.
+Sa├¡da: respostas de (a) e (b) + sa├¡da do c├│digo em (c).
+Casos de teste:
+(a) guloso: 5 + 1 + 1 + 1 = 8
+->
+4 notas
+(b) otimo:
+4 + 4 = 8
+->
+2 notas
+(c) Entrada: 8 / 3 / 5 4 1
+->
+Saida: 1 nota(s) de 5 / 3 nota(s) de 1
+27
+
+=== PAGE 28 ===
+Perguntas: por que o algoritmo guloso falha aqui? Qual propriedade do conjunto
+de notas 100,50,20,10,5,2,1 garante que o guloso funciona no sistema real?
+3. [F├ícil] Mochila fracion├íria (c├ílculo manual). Dados v = 10, 40, 30, 50,
+w = 5, 4, 6, 3 e W = 10, calcule o valor m├íximo pela maior raz├úo valor/peso,
+indicando as fra├º├╡es fi.
+Sa├¡da: raz├╡es, ordem de escolha, fra├º├╡es e valor total.
+Casos de teste:
+r = {2, 10, 5, 16.67}
+->
+ordem: item 4, item 2, item 3, item 1
+f4 = 1
+(peso 3), f2 = 1 (peso 4), f3 = 3/6 = 1/2
+(peso 3)
+->
+peso total 10
+valor = 50 + 40 + (1/2)*30 = 105
+(OTIMO)
+4. [M├⌐dio] Escalonamento de intervalos (programa completo). Escreva o pro-
+grama completo: leia n e n intervalos inicio fim, ordene com qsort usando int
+compara(const void *a, const void *b) (fim crescente, desempate por in├¡cio)
+e aplique o guloso, imprimindo o n├║mero de eventos atendidos seguido dos inter-
+valos.
+Entrada: n; n pares inicio fim.
+Sa├¡da: o n├║mero de eventos e os intervalos escolhidos.
+Casos de teste:
+Entrada: 5 / 1 3 / 2 5 / 4 7 / 6 9 / 8 10
+Saida:
+3
+(1,3)
+(4,7)
+(8,10)
+5. [Dif├¡cil] Reservas do laborat├│rio.
+Leia N reservas HH:MM HH:MM e imprima
+apenas o n├║mero m├íximo atend├¡vel (in├¡cio ΓëÑt├⌐rmino da anterior). Use a estrat├⌐gia
+gulosa ordenando por t├⌐rmino.
+Entrada: N; N linhas HH:MM HH:MM.
+Sa├¡da: um inteiro.
+Casos de teste:
+Entrada: 4 / 8:00 9:00 / 9:00 10:30 / 9:15 9:45 / 10:00 11:00
+->
+Saida: 2
+Entrada: 3 / 9:00 9:30 / 9:30 10:00 / 10:00 10:30
+->
+Saida: 3
+Entrada: 2 / 10:00 12:00 / 11:00 11:30
+->
+Saida: 1
+Perguntas: no primeiro caso, por que a reserva das 10:00 n├úo pode ser atendida
+junto com as duas escolhidas?
+28
+
+=== PAGE 29 ===
+6. Programa├º├úo Din├ómica
+1. [F├ícil] Fibonacci (bottom-up). Escreva long long fib_bottomup(int n) por
+tabula├º├úo.
+Entrada: um inteiro n >= 0.
+Sa├¡da: a linha Fib(n) = X.
+Casos de teste:
+Entrada: 0
+->
+Saida: Fib(0) = 0
+Entrada: 15
+->
+Saida: Fib(15) = 610
+Entrada: 25
+->
+Saida: Fib(25) = 75025
+2. [F├ícil] Fibonacci (top-down). Escreva long long fib_topdown(int n) por
+memoization com tabela global inicializada com -1.
+Entrada: um inteiro n >= 0.
+Sa├¡da: a linha Fib(n) = X.
+Casos de teste:
+Entrada: 0
+->
+Saida: Fib(0) = 0
+Entrada: 15
+->
+Saida: Fib(15) = 610
+Entrada: 40
+->
+Saida: Fib(40) = 102334155
+3. [F├ícil] Sobreposi├º├úo de subproblemas (te├│rico). Desenhe a ├írvore de chama-
+das de fib(5) e responda: (a) quantas vezes cada subproblema fib(0)..fib(3) ├⌐
+resolvido? (b) qual o n├║mero total de chamadas? (c) quantas chamadas sobrariam
+com memoization?
+Sa├¡da: ├írvore desenhada + tr├¬s respostas num├⌐ricas.
+Casos de teste:
+fib(3) x2, fib(2) x3, fib(1) x5, fib(0) x3
+Total de chamadas (incluindo a inicial): 15
+Com memoization: apenas 5 chamadas de calculo (fib(0) a fib(4))
+4. [M├⌐dio] Mochila booleana com PD (com reconstru├º├úo). Al├⌐m do valor
+├│timo, imprima quais itens foram escolhidos: percorra a tabela M de (n, c)
+para tr├ís ΓÇö se M[i][c] != M[i-1][c], o item i foi escolhido; passe para (i-1,
+c - p[i]); sen├úo apenas decremente i. Dados: p = 40, 30, 20, 10, 20, v =
+840, 600, 400, 100, 300, c = 50.
+Entrada: capacidade c; n; os n pesos; os n valores.
+Sa├¡da: Valor maximo:
+X e Itens:
+... (├¡ndices, em ordem crescente).
+Casos de teste:
+Entrada: 50 / 5 / 40 30 20 10 20 / 840 600 400 100 300
+Saida:
+Valor maximo: 1000
+Itens: 2 3
+29
+
+=== PAGE 30 ===
+5. [Dif├¡cil] Multiplica├º├úo de cadeia de matrizes (6 matrizes). Para A1(30├ù35),
+A2(35├ù15), A3(15├ù5), A4(5├ù10), A5(10├ù20), A6(20├ù25) (p = {30, 35, 15, 5, 10, 20, 25}),
+preencha a tabela M[i][j] (6├ù6) bottom-up. Indique o k vencedor de M[1, 6] e re-
+cupere a parentiza├º├úo ├│tima completa percorrendo as escolhas de k.
+Sa├¡da: tabela completa, custo m├¡nimo e parentiza├º├úo.
+Casos de teste:
+M[1][2] = 15750
+M[2][3] = 2625
+M[3][4] = 750
+M[4][5] = 1000
+M[5][6] = 5000
+M[1][6] = 15125
+(k = 3)
+->
+((A1 x A2) x ((A3 x A4) x A5)) x
+A6 (recupere percorrendo as escolhas de k a partir de M[1,6])
+Refer├¬ncias
+[1] WIRTH, N. Algoritmos e Estruturas de Dados. LTC, 1999.
+[2] CORMEN, T. H. et al. Algoritmos: teoria e pr├ítica. Rio de Janeiro: Editora Campus,
+2002.
+30
+
